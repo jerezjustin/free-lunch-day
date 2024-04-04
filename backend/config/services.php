@@ -14,6 +14,10 @@ return [
     |
     */
 
+    'alegra' => [
+        'url' => env('ALEGRA_MARKET_SERVICE_URL')
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
