@@ -13,7 +13,7 @@ purchaseStore.fetchPurchases();
 </script>
 
 <template>
-    <div class="w-1/2 border rounded-lg p-4">
+    <div class="w-1/2 border rounded-lg p-4 self-start">
         <!-- Ingredient List -->
         <h2 class="text-xl font-bold text-gray-700 mt-2 mb-4">Available Ingredients</h2>
 

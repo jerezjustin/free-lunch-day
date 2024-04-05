@@ -12,6 +12,20 @@ export const useOrderStore = defineStore('orders', {
         }
     },
     actions: {
+        async placeOrder() {
+            try {
+                const response = await fetch(`${baseUrl}/orders`, { method: "POST" });
+
+                if (!response.ok) {
+                    throw new Error('Failed to place order.');
+                }
+
+                const data = await response.json();
+                this.orders = [data, ...this.orders];
+            } catch (error) {
+                console.error(error);
+            }
+        },
         async fetchOrders() {
             try {
                 const response = await fetch(`${baseUrl}/orders`);

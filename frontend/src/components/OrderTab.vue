@@ -7,8 +7,11 @@ orderStore.fetchOrders();
 </script>
 
 <template>
-    <div class="w-1/2 flex flex-col border rounded-lg p-4">
-        <button class="self-end bg-red-500 text-white px-4 py-2 rounded-lg font-bold mb-8">Place Order</button>
+    <div class="w-1/2 flex flex-col border rounded-lg p-4 self-start">
+        <button @click="orderStore.placeOrder"
+            class="self-end bg-red-500 text-white px-4 py-2 rounded-lg font-bold mb-8">
+            Place Order
+        </button>
 
         <h2 class="text-xl font-bold text-gray-700 mt-2 mb-4">Order History</h2>
 
