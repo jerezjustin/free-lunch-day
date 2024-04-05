@@ -14,6 +14,12 @@ class OrderService
     {
         $orders = Order::query();
 
+        if (request()->has('status') && $status = OrderStatus::tryFrom(request()->query('status'))) {
+            $orders->status($status);
+        }
+
+        $orders->latest();
+
         return $orders->paginate($perPage);
     }
 
