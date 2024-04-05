@@ -10,6 +10,8 @@ enum OrderStatus: string
 
     case Completed = 'completed';
 
+    case Failed = 'failed';
+
     public static function toArray(): array
     {
         return array_column(static::cases(), 'value');

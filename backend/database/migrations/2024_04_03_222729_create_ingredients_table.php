@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 10);
+            $table->string('name', 10)->unique();
             $table->integer('quantity')->default(5);
             $table->timestamps();
         });

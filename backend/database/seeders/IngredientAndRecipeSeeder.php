@@ -43,7 +43,8 @@ class IngredientAndRecipeSeeder extends Seeder
         ],
         'Fried Chicken and French Fries' => [
             'Chicken' => 2,
-            'Potato' => 1
+            'Potato' => 1,
+            'Ketchup' => 1,
         ]
     ];
 
