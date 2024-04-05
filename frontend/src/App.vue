@@ -1,5 +1,6 @@
 <script setup>
 import IngredientsTab from './components/IngredientsTab.vue';
+import OrderTab from './components/OrderTab.vue';
 import RecipeList from './components/RecipeList.vue';
 </script>
 
@@ -12,8 +13,9 @@ import RecipeList from './components/RecipeList.vue';
       <RecipeList />
 
       <!-- Tabs Container -->
-      <div class="flex mt-8">
+      <div class="flex mt-8 gap-8">
         <IngredientsTab />
+        <OrderTab />
       </div>
     </div>
   </div>
