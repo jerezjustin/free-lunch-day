@@ -25,7 +25,7 @@ class PrepareMealJob implements ShouldQueue
 
     public $tries = 5;
     public $backoff = 5;
-    public $maxExceptions = 3;
+    public $maxExceptions = 5;
 
     protected MarketServiceInterface $marketService;
     protected OrderService $orderService;
