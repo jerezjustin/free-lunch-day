@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "laravel-echo": "^1.16.0",
     "pinia": "^2.1.7",
+    "pusher-js": "^8.4.0-rc2",
     "vue": "^3.4.21"
   },
   "devDependencies": {

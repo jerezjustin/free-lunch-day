@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\OrderStatus;
+use App\Events\OrderStatusUpdated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,10 @@ class Order extends Model
             'status' => OrderStatus::class
         ];
     }
+
+    protected $dispatchesEvents = [
+        'updated' => OrderStatusUpdated::class,
+    ];
 
     protected $fillable = [
         'status',

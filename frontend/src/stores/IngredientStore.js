@@ -22,6 +22,15 @@ export const useIngredientStore = defineStore('ingredients', {
             } catch (error) {
                 console.error(error);
             }
-        }
+        },
+        async updateIngredient(updatedIngredient) {
+            this.ingredients = this.ingredients.map((ingredient) => {
+                if (ingredient.id === updatedIngredient.id) {
+                    ingredient.quantity = updatedIngredient.quantity;
+                }
+
+                return ingredient;
+            });
+        },
     }
 });

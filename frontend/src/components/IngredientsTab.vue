@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue';
 import { useIngredientStore } from '../stores/IngredientStore';
 import { usePurchaseStore } from '../stores/PurchaseStore';
 
@@ -10,6 +11,16 @@ ingredientStore.fetchIngredients();
 
 const purchaseStore = usePurchaseStore();
 purchaseStore.fetchPurchases();
+
+onMounted(() => {
+    window.Echo.channel('ingredient-quantity-updated').listen('IngredientQuantityUpdated', (e) => {
+        ingredientStore.updateIngredient(e.ingredient);
+    });
+
+    window.Echo.channel('new-ingredient-purchase').listen('NewIngredientPurchase', (e) => {
+        purchaseStore.addPurchase(e.purchase);
+    });
+});
 </script>
 
 <template>

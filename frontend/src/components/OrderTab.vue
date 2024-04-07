@@ -1,9 +1,16 @@
 <script setup>
+import { onMounted } from 'vue';
 import { useOrderStore } from '../stores/OrderStore';
 import OrderRecord from './OrderRecord.vue';
 
 const orderStore = useOrderStore();
 orderStore.fetchOrders();
+
+onMounted(() => {
+    window.Echo.channel('order-status-updated').listen('OrderStatusUpdated', (e) => {
+        orderStore.updateOrder(e.order);
+    });
+});
 </script>
 
 <template>

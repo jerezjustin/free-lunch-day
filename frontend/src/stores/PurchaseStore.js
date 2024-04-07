@@ -41,6 +41,9 @@ export const usePurchaseStore = defineStore('purchases', {
             } catch (error) {
                 console.error(error);
             }
+        },
+        addPurchase(newPurchase) {
+            this.purchases = [newPurchase, ...this.purchases];
         }
     }
 });

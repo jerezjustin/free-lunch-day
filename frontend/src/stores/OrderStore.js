@@ -26,6 +26,15 @@ export const useOrderStore = defineStore('orders', {
                 console.error(error);
             }
         },
+        async updateOrder(updatedOrder) {
+            const order = this.orders.find((order) => order.id === updatedOrder.id);
+
+            if (order) {
+                order.status = updatedOrder.status;
+                const orders = this.orders.filter((order) => order.id !== updatedOrder.id);
+                this.orders = [order, ...orders];
+            }
+        },
         async fetchOrders() {
             try {
                 const response = await fetch(`${baseUrl}/orders`);
@@ -56,5 +65,8 @@ export const useOrderStore = defineStore('orders', {
                 console.error(error);
             }
         }
+    },
+    create() {
+        console.log('works');
     }
 });
