@@ -20,7 +20,7 @@ class OrderService
 
         $orders->latest();
 
-        return $orders->paginate($perPage);
+        return $orders->paginate($perPage)->withQueryString();
     }
 
     public function process(Recipe $recipe): Order

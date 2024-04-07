@@ -35,9 +35,11 @@ export const useOrderStore = defineStore('orders', {
                 this.orders = [order, ...orders];
             }
         },
-        async fetchOrders() {
+        async fetchOrders(status) {
             try {
-                const response = await fetch(`${baseUrl}/orders`);
+                const response = !status
+                    ? await fetch(`${baseUrl}/orders`)
+                    : await fetch(`${baseUrl}/orders?status=${status}`);
 
                 if (!response.ok) {
                     throw new Error('Failed to retrieve orders.');
@@ -60,7 +62,7 @@ export const useOrderStore = defineStore('orders', {
 
                 const data = await response.json();
                 this.orders = [...this.orders, ...data.data];
-                this.pagination.nextPage = data.links.next
+                this.pagination.nextPage = data.links.next;
             } catch (error) {
                 console.error(error);
             }
