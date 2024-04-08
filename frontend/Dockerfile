@@ -11,6 +11,7 @@ RUN npm install
 
 # Copy the rest of the files
 COPY . .
+COPY .env.example .env
 
 # Compile assets for production
 RUN npm run build
