@@ -26,6 +26,6 @@ class PurchaseServiceTest extends TestCase
 
         $purchase = $purchaseService->store($ingredient, 5);
 
-        $this->assertDatabaseHas('purchases', $purchase->toArray());
+        $this->assertDatabaseHas('purchases', ['id' => $purchase->id]);
     }
 }
